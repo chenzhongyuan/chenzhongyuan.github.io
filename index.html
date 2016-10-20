@@ -68,14 +68,14 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/10/06/blog1/">Ashes的第一条博客</a>
+      <a class="article-title" href="/2016/10/06/blog1/">欢迎</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/06/blog1/" data-id="ciuhru9zk0000mgo0s4k4icgc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/06/blog1/" data-id="ciuhrwi4y0000i4o0vlvezu63" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -109,73 +109,6 @@
 
 
   
-    <article id="post-blog2" class="post-blog2 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/09/29/blog2/">制作博客的小结</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog2/" data-id="ciuhru9zq0001mgo09gp7u65m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本次的blog中，遇到了很多各种各样的小问题，并一一解决了整理如下：</p>
-<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><h3 id="Hexo的安装"><a href="#Hexo的安装" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure>
-<h3 id="新建blog目录"><a href="#新建blog目录" class="headerlink" title="新建blog目录"></a>新建blog目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir blog</div></pre></td></tr></table></figure>
-<h3 id="进入blog目录"><a href="#进入blog目录" class="headerlink" title="进入blog目录"></a>进入blog目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd blog</div></pre></td></tr></table></figure>
-<h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<h3 id="启动hexo-server"><a href="#启动hexo-server" class="headerlink" title="启动hexo server"></a>启动hexo server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo server </div><div class="line"></div><div class="line">在浏览器中输入网址：</div><div class="line">localhost:4000</div></pre></td></tr></table></figure>
-<p>此时你可以看到一个原始的hexo博客的界面，这个时候说明前面的步骤都是成功。如果有什么问题，请回头检查。<br>一切正常后，请输入<code>Ctrl+C</code>关闭4000端口。</p>
-<h2 id="Hexo的部署"><a href="#Hexo的部署" class="headerlink" title="Hexo的部署"></a>Hexo的部署</h2><h3 id="进入github创建项目"><a href="#进入github创建项目" class="headerlink" title="进入github创建项目"></a>进入github创建项目</h3><p>在GitHub上面直接创建了一个新的项目,名字为 chenzhongyuan.github.io。<br>此时在Chrome地址栏输入chenzhongyuan.github.io。然后就出现了404。原因就在于我们还没有上传任何的文件上去。</p>
-<h3 id="关联GitHub与blog文件夹"><a href="#关联GitHub与blog文件夹" class="headerlink" title="关联GitHub与blog文件夹"></a>关联GitHub与blog文件夹</h3><p>将本机安装的Hexo框架的blog文件夹与GitHub上面的username.github.io项目关联。<br>首先是GitHub中项目的SSH链接，然后打开blog文件夹，用NotePad++2打开_config.yml文件，修改最下面的deploy属性：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:chenzhongyuan/chenzhongyuan.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p><strong>PS</strong>:这个地方一定要注意，标签的冒号后面一定要加一个空格。否则后面在部署文件的时候会出现问题。 </p>
-<p> 这个地方将本地文件和git建立了关联，为后面部署做了重要的铺垫。</p>
-<h3 id="安装hexo-deployer-git"><a href="#安装hexo-deployer-git" class="headerlink" title="安装hexo-deployer-git"></a>安装hexo-deployer-git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git -S</div></pre></td></tr></table></figure>
-<h3 id="打包本地blog"><a href="#打包本地blog" class="headerlink" title="打包本地blog"></a>打包本地blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
-<h3 id="上传部署本机的blog"><a href="#上传部署本机的blog" class="headerlink" title="上传部署本机的blog"></a>上传部署本机的blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
-<h3 id="查看自己的blog"><a href="#查看自己的blog" class="headerlink" title="查看自己的blog"></a>查看自己的blog</h3><p>打开自己的github，可以发现自己建立的项目<br>已经出现了hexo相关的branch，说明已经完成了本地文件与github的关联。<br>输入username.github.io就可以看到自己的blog。 </p>
-<h2 id="blog后续的更新"><a href="#blog后续的更新" class="headerlink" title="blog后续的更新"></a>blog后续的更新</h2><p>在 <strong><em>blog\source_posts</em></strong> 目录下面会发现.md文件，以后写的blog就往这里放就好了，然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g </div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>完成文件的打包上传就ok了。<br>关于书写博客，需要用到MarkDown语法，为此特地上网搜索一下相关教程。推荐一个~<br><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">戳这里</a></p>
-<h2 id="更改Hexo主题"><a href="#更改Hexo主题" class="headerlink" title="更改Hexo主题"></a>更改Hexo主题</h2><p>进入建立的blog文件夹找到themes，这个地方就是负责配置主题的地方。在github上面有许许多多别人写好的开源主题，下载下来然后解压放在这里，记得在blog下 <strong>_config.yml</strong>  中更改主题名字。最后在themes目录的主题文件夹下修改 <strong>_config.yml</strong> 文件，完成对主题的部分功能的自定义就好了。</p>
-<h2 id="遇到的问题与解决方法"><a href="#遇到的问题与解决方法" class="headerlink" title="遇到的问题与解决方法"></a>遇到的问题与解决方法</h2><p>虽然本次实验还算成功，但是还是在部署过程中遇到了问题，hexo d 无响应，还好在爬csdn的时候找到了解决方法（在配置config文件的标签后面少了一个空格），而且还发现了很多人都有这个小问题，导致了部署的不成功。<br>与此同时，也遇到了各种奇怪的404，不过是因为自己同步后网速不够，没来得及更新导致的。。。  </p>
-<p><strong><em>PS</em></strong>：最后辛苦几位学长为我们答疑解惑，辛苦了，阿里嘎多~~(～￣▽￣)~</p>
-<h2 id="后续改进方面"><a href="#后续改进方面" class="headerlink" title="后续改进方面"></a>后续改进方面</h2><ol>
-<li>可以考虑加入音乐插件。</li>
-<li>加入评论点赞的功能。</li>
-<li>增加统计访客的功能。</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/09/29/blog2/">
-    <time datetime="2016-09-29T05:39:00.079Z" class="entry-date">
-        2016-09-29
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-blog3(1)" class="post-blog3(1) post type-post status-publish format-standard hentry">
     <!---->
 
@@ -191,7 +124,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog3(1)/" data-id="ciuhru9zt0002mgo0ji0qklny" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog3(1)/" data-id="ciuhrwi530001i4o02ypaivs8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -246,6 +179,73 @@
 
 
   
+    <article id="post-blog2" class="post-blog2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/09/29/blog2/">制作博客的小结</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog2/" data-id="ciuhrwi5b0002i4o04to87np6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本次的blog中，遇到了很多各种各样的小问题，并一一解决了整理如下：</p>
+<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><h3 id="Hexo的安装"><a href="#Hexo的安装" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure>
+<h3 id="新建blog目录"><a href="#新建blog目录" class="headerlink" title="新建blog目录"></a>新建blog目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir blog</div></pre></td></tr></table></figure>
+<h3 id="进入blog目录"><a href="#进入blog目录" class="headerlink" title="进入blog目录"></a>进入blog目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd blog</div></pre></td></tr></table></figure>
+<h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<h3 id="启动hexo-server"><a href="#启动hexo-server" class="headerlink" title="启动hexo server"></a>启动hexo server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo server </div><div class="line"></div><div class="line">在浏览器中输入网址：</div><div class="line">localhost:4000</div></pre></td></tr></table></figure>
+<p>此时你可以看到一个原始的hexo博客的界面，这个时候说明前面的步骤都是成功。如果有什么问题，请回头检查。<br>一切正常后，请输入<code>Ctrl+C</code>关闭4000端口。</p>
+<h2 id="Hexo的部署"><a href="#Hexo的部署" class="headerlink" title="Hexo的部署"></a>Hexo的部署</h2><h3 id="进入github创建项目"><a href="#进入github创建项目" class="headerlink" title="进入github创建项目"></a>进入github创建项目</h3><p>在GitHub上面直接创建了一个新的项目,名字为 chenzhongyuan.github.io。<br>此时在Chrome地址栏输入chenzhongyuan.github.io。然后就出现了404。原因就在于我们还没有上传任何的文件上去。</p>
+<h3 id="关联GitHub与blog文件夹"><a href="#关联GitHub与blog文件夹" class="headerlink" title="关联GitHub与blog文件夹"></a>关联GitHub与blog文件夹</h3><p>将本机安装的Hexo框架的blog文件夹与GitHub上面的username.github.io项目关联。<br>首先是GitHub中项目的SSH链接，然后打开blog文件夹，用NotePad++2打开_config.yml文件，修改最下面的deploy属性：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:chenzhongyuan/chenzhongyuan.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p><strong>PS</strong>:这个地方一定要注意，标签的冒号后面一定要加一个空格。否则后面在部署文件的时候会出现问题。 </p>
+<p> 这个地方将本地文件和git建立了关联，为后面部署做了重要的铺垫。</p>
+<h3 id="安装hexo-deployer-git"><a href="#安装hexo-deployer-git" class="headerlink" title="安装hexo-deployer-git"></a>安装hexo-deployer-git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git -S</div></pre></td></tr></table></figure>
+<h3 id="打包本地blog"><a href="#打包本地blog" class="headerlink" title="打包本地blog"></a>打包本地blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
+<h3 id="上传部署本机的blog"><a href="#上传部署本机的blog" class="headerlink" title="上传部署本机的blog"></a>上传部署本机的blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
+<h3 id="查看自己的blog"><a href="#查看自己的blog" class="headerlink" title="查看自己的blog"></a>查看自己的blog</h3><p>打开自己的github，可以发现自己建立的项目<br>已经出现了hexo相关的branch，说明已经完成了本地文件与github的关联。<br>输入username.github.io就可以看到自己的blog。 </p>
+<h2 id="blog后续的更新"><a href="#blog后续的更新" class="headerlink" title="blog后续的更新"></a>blog后续的更新</h2><p>在 <strong><em>blog\source_posts</em></strong> 目录下面会发现.md文件，以后写的blog就往这里放就好了，然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g </div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<p>完成文件的打包上传就ok了。<br>关于书写博客，需要用到MarkDown语法，为此特地上网搜索一下相关教程。推荐一个~<br><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">戳这里</a></p>
+<h2 id="更改Hexo主题"><a href="#更改Hexo主题" class="headerlink" title="更改Hexo主题"></a>更改Hexo主题</h2><p>进入建立的blog文件夹找到themes，这个地方就是负责配置主题的地方。在github上面有许许多多别人写好的开源主题，下载下来然后解压放在这里，记得在blog下 <strong>_config.yml</strong>  中更改主题名字。最后在themes目录的主题文件夹下修改 <strong>_config.yml</strong> 文件，完成对主题的部分功能的自定义就好了。</p>
+<h2 id="遇到的问题与解决方法"><a href="#遇到的问题与解决方法" class="headerlink" title="遇到的问题与解决方法"></a>遇到的问题与解决方法</h2><p>虽然本次实验还算成功，但是还是在部署过程中遇到了问题，hexo d 无响应，还好在爬csdn的时候找到了解决方法（在配置config文件的标签后面少了一个空格），而且还发现了很多人都有这个小问题，导致了部署的不成功。<br>与此同时，也遇到了各种奇怪的404，不过是因为自己同步后网速不够，没来得及更新导致的。。。  </p>
+<p><strong><em>PS</em></strong>：最后辛苦几位学长为我们答疑解惑，辛苦了，阿里嘎多~~(～￣▽￣)~</p>
+<h2 id="后续改进方面"><a href="#后续改进方面" class="headerlink" title="后续改进方面"></a>后续改进方面</h2><ol>
+<li>可以考虑加入音乐插件。</li>
+<li>加入评论点赞的功能。</li>
+<li>增加统计访客的功能。</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/09/29/blog2/">
+    <time datetime="2016-09-29T05:39:00.079Z" class="entry-date">
+        2016-09-29
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
   
 
 </div></div>
@@ -269,15 +269,15 @@
       <ul>
         
           <li>
-            <a href="/2016/10/06/blog1/">Ashes的第一条博客</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/29/blog2/">制作博客的小结</a>
+            <a href="/2016/10/06/blog1/">欢迎</a>
           </li>
         
           <li>
             <a href="/2016/09/29/blog3(1)/">python爬虫的小结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/29/blog2/">制作博客的小结</a>
           </li>
         
       </ul>
