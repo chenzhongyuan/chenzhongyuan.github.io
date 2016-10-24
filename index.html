@@ -75,7 +75,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/06/blog1/" data-id="ciuhrwi4y0000i4o0vlvezu63" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/06/blog1/" data-id="ciuoaumzv0003q0o04y8kqzr1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -109,6 +109,60 @@
 
 
   
+    <article id="post-blog4" class="post-blog4 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/09/29/blog4/">Unity3D的小结</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog4/" data-id="ciuoaumzb0000q0o0gosd7v41" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本次的U3D学习中，遇到了很多各种各样的小问题，并一一解决了整理如下：</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="Unity3D的安装"><a href="#Unity3D的安装" class="headerlink" title="Unity3D的安装"></a>Unity3D的安装</h3><p>从邮件中下载好相应的安装包，按照破解教程破解软件后，进入设置时注意把编译器换成自己喜欢的c# IDE就好了，因为内置的IDE实在不好用。。。本人使用的是vs2010.</p>
+<h3 id="导入文件"><a href="#导入文件" class="headerlink" title="导入文件"></a>导入文件</h3><p>导入学长事先上传的unitypackage文件，我们可以大体上看到人物模型和场景模型。</p>
+<p>打开test文件，可以看到整个场景，但是此时的人物是动不了的，因为缺少脚本文件，所以接下来就是写脚本文件了。 </p>
+<h3 id="脚本文件的编写"><a href="#脚本文件的编写" class="headerlink" title="脚本文件的编写"></a>脚本文件的编写</h3><h4 id="首先要做的是实现用键盘控制角色的移动"><a href="#首先要做的是实现用键盘控制角色的移动" class="headerlink" title="首先要做的是实现用键盘控制角色的移动"></a>首先要做的是实现用键盘控制角色的移动</h4><p>（1） 新建一个 C#脚本文件，注意脚本名字要和类名一致，然后挂载到<br>player物体上面，可以直接拖上去，也可以点击player找到Inspector<br>视窗最下面的Add Component 然后搜索自己创建的脚本就可以了。<br>（2） 在脚本中定义一个 public float walkSpeed 变量，用来控制角色移<br>动的速度。<br>在脚本当中定义的public变量可以在点击相关物体出现的Inspector<br>视窗中对应脚本位置赋值。<br>优先级：start函数 &gt; Inspector 视窗赋值 &gt; 变量定义时候赋值<br>（3） 在update函数中更新逻辑：<br>思想：下一帧位置 = 当前位置 + 位移（速率  <em> 时间 </em> 方向）<br>（4）用到的函数:<br>Input.GetAxis(string) ，参数选择 Horizontal 或者 Vertical ，返回值为 -1到1的float  </p>
+<p>具体代码可以参考如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using System.Collections;</div><div class="line"></div><div class="line">public class player : MonoBehaviour &#123;</div><div class="line"></div><div class="line">    public <span class="built_in">float</span> walkSpeed;</div><div class="line">	// Use this <span class="keyword">for</span> initialization</div><div class="line">	void <span class="function"><span class="title">Start</span></span> () &#123;</div><div class="line">        walkSpeed = 5.0f;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	// Update is called once per frame  </div><div class="line">	void <span class="function"><span class="title">Update</span></span> ()</div><div class="line">    &#123;</div><div class="line">        Vector3 direction = Input.GetAxis(<span class="string">"Horizontal"</span>) * transform.right +</div><div class="line">                            Input.GetAxis(<span class="string">"Vertical"</span>) * transform.forward;</div><div class="line"></div><div class="line">        transform.position += walkSpeed * Time.deltaTime * direction;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="给游戏角色加上动画文件并用脚本控制"><a href="#给游戏角色加上动画文件并用脚本控制" class="headerlink" title="给游戏角色加上动画文件并用脚本控制"></a>给游戏角色加上动画文件并用脚本控制</h4><p>大体上和上文的方法差不多，<br>但需要我们注意以下几点： </p>
+<p>（1） Player物体Animator下面的Controller要选中自己创建的动画控制机。<br>（2） 要在脚本中定义一个变量 public Animator animator，（脚本已经挂载到角色上）   ，然后unity的视窗对应位置选择player（即用本身的<br>动画系统），之后便可更新逻辑。<br>（3） player物体Animator 的Apply Root Motion 不要勾选，勾选之后<br>会应用动画的位移。（播放动画的时候角色的position会变。。。）<br>（4） 向右走的角度是 0-45 。<br>（5） 用到的几个函数：<br>transform.InverseTransformDirection(Vector3)<br>根据传入的三维变量返回一个自身坐标系的三维变量。<br>animator.SetFloat(string, float)<br>注意这里的animator变量类型是<br>Animator。 将float值传给animator所代表的控制机里面的string<br>变量。<br>Mathf.Atan2(float，float)<br>反正切函数，第一个参数是对边，第二个<br>参数是邻边，返回值是弧度（-π到π）<br>Mathf.Rad2Deg<br>返回值为从弧度到角度的转换系数。  </p>
+<p>具体代码参考如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using System.Collections;</div><div class="line"></div><div class="line">public class player_animator : MonoBehaviour &#123;</div><div class="line"></div><div class="line">    public Animator animator;</div><div class="line"></div><div class="line">    private Vector3  lastPosition;</div><div class="line">    private <span class="built_in">float</span> Speed;</div><div class="line">    private <span class="built_in">float</span> Angle;</div><div class="line">	// Use this <span class="keyword">for</span> initialization</div><div class="line">	void <span class="function"><span class="title">Start</span></span> ()</div><div class="line">    &#123;</div><div class="line">        lastPosition = transform.position;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	// Update is called once per frame</div><div class="line">	void <span class="function"><span class="title">Update</span></span> () &#123;</div><div class="line">        Vector3 Velocity = (transform.position - lastPosition) / Time.deltaTime;</div><div class="line">        Vector3 <span class="built_in">local</span>Velocity = transform.InverseTransformDirection(Velocity);</div><div class="line">        <span class="built_in">local</span>Velocity.y = 0;</div><div class="line">        Speed = <span class="built_in">local</span>Velocity.magnitude;</div><div class="line">        Angle = (HorizontalAngle(<span class="built_in">local</span>Velocity) + 360f) % 360;</div><div class="line"></div><div class="line">        animator.SetFloat(<span class="string">"Speed"</span>, Speed);</div><div class="line">        animator.SetFloat(<span class="string">"Angle"</span>, Angle);</div><div class="line"></div><div class="line">        lastPosition = transform.position;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    <span class="built_in">float</span> HorizontalAngle (Vector3 <span class="built_in">local</span>Velocity)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">float</span> angle = Mathf.Atan2(<span class="built_in">local</span>Velocity.z, <span class="built_in">local</span>Velocity.x) * Mathf.Rad2Deg;</div><div class="line">        <span class="built_in">return</span> angle;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="THE-MORE"><a href="#THE-MORE" class="headerlink" title="THE MORE"></a>THE MORE</h3><p>关于更多效果的实现可以参看慕课网的教学视频： </p>
+<p><a href="http://www.imooc.com/learn/313" target="_blank" rel="external">http://www.imooc.com/learn/313</a></p>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>第一次如此接近游戏制作，震撼力是有的，确实好玩，如果以后有时间，也想自己试试。最后还是谢谢学长一直以来的耐心教导，阿里嘎多！<br>我也会在未来好好加油的！</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/09/29/blog4/">
+    <time datetime="2016-09-29T05:39:00.079Z" class="entry-date">
+        2016-09-29
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-blog3(1)" class="post-blog3(1) post type-post status-publish format-standard hentry">
     <!---->
 
@@ -124,7 +178,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog3(1)/" data-id="ciuhrwi530001i4o02ypaivs8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog3(1)/" data-id="ciuoaumzp0001q0o0orakjbld" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -194,7 +248,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog2/" data-id="ciuhrwi5b0002i4o04to87np6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/29/blog2/" data-id="ciuoaumzs0002q0o0497bgyhx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -270,6 +324,10 @@
         
           <li>
             <a href="/2016/10/06/blog1/">欢迎</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/29/blog4/">Unity3D的小结</a>
           </li>
         
           <li>
